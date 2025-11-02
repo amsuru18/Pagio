@@ -86,7 +86,7 @@ const updateBook = async (req, res) => {
       new: true,
     });
 
-    res.status(200).json(updateBook);
+    res.status(200).json(updatedBook);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
@@ -97,6 +97,21 @@ const updateBook = async (req, res) => {
 // @access PRIVATE
 const deleteBook = async (req, res) => {
   try {
+    const book = await Book.findById(req.params.id);
+
+    if (!book) {
+      return res.status(404).json({ message: "Book Not Found" });
+    }
+
+    if (book.userId.toString() !== req.user._id.toString()) {
+      return res
+        .status(401)
+        .json({ message: "Not authorized to delete this book" });
+    }
+
+    await book.deleteOne();
+
+    res.status(200).json({ message: "Book is successfully deleted!" });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
