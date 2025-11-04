@@ -546,6 +546,65 @@ const TYPOGRAPHY = {
   }
 }
 
+const renderInlineTokens = (doc, tokens, options = {}) => {
+  if (!tokens || tokens.length === 0) return;
+
+  const baseOptions = {
+    align: options.align || "justify",
+    indent: options.indent || 0,
+    lineGap: options.lineGap || 2,
+  }
+
+  let currentFont = TYPOGRAPHY.fonts.serif;
+  let textBuffer = "";
+
+  const flushBuffer = () => {
+    if (textBuffer) {
+      doc.font(currentFont).text(textBuffer, {
+        ...baseOptions,
+        continued: true,
+      })
+      textBuffer = "";
+    }
+  }
+
+  for (let i = 0; i < tokens.length; i++){
+    const token = tokens[i];
+
+    if (token.type === "text") {
+      textBuffer += token.content;
+    } else if (token.type === "strong_open") {
+      flushBuffer();
+      currentFont = TYPOGRAPHY.fonts.serifBold;
+    } else if (token.type === "strong_close") {
+      flushBuffer();
+      currentFont = TYPOGRAPHY.fonts.serif;
+    } else if (token.type === "em_open") {
+      flushBuffer();
+      currentFont = TYPOGRAPHY.fonts.serifItalic;
+    } else if (token.type === "em_close") {
+      flushBuffer();
+      currentFont = TYPOGRAPHY.fonts.serif;
+    } else if (token.type === "code_inline") {
+      flushBuffer();
+      doc.font("Courier").text(token.content, {
+        ...baseOptions,
+        continued: true,
+      })
+      doc.font(currentFont);
+    }
+  }
+
+  if (textBuffer) {
+    doc.font(currentFont).text(textBuffer, {
+      ...baseOptions,
+      continued: false
+    })
+  } else {
+    doc.text("", { continued: false });
+  }
+}
+
 const exportAsPDF = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
