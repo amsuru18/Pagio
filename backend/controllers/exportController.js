@@ -1,3 +1,10 @@
+const PDFDocument = require("pdfkit");
+const MarkdownIt = require("markdown-it");
+const Book = require("../models/Book");
+const path = require("path");
+const fs = require("fs");
+const md = new MarkdownIt();
+
 const {
   Document,
   Packer,
@@ -9,14 +16,6 @@ const {
   ImageRun,
   Alignment,
 } = require("docx");
-
-const PDFDocument = require("pdfkit");
-const MarkdownIt = require("markdown-it");
-const Book = require("../models/Book");
-const path = require("path");
-const fs = require("fs");
-
-const md = new MarkdownIt();
 
 // Typography configuration matching the PDF export
 const DOCX_STYLES = {

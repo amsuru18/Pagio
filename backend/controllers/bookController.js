@@ -135,7 +135,8 @@ const updateBookCover = async (req, res) => {
     }
 
     if (req.file) {
-      book.coverImage = `${req.file.path}`;
+      const normalizedPath = `/${req.file.path.replace(/\\/g, "/")}`;
+      book.coverImage = normalizedPath;
     } else {
       return res.status(400).json({ message: "No image file provided" });
     }
