@@ -26,3 +26,27 @@ export const FEATURES = [
         gradient: "from-pink-500 to-rose-600",
     }
 ]
+
+export const TESTIMONIALS = [
+    {
+        quote: 'This platform made it so easy to write and publish my first ebook. The AI assistant is a game-changer',
+        author: 'Vaibhav Garg',
+        title: 'Bestselling Author',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fir=crop',
+        rating: 5,
+    },
+    {
+        quote: 'I love the customizable tempelates. I was able to create a beautiful ebook that matches my brand perfectly',
+        author: 'Chinmayanand Swami',
+        title: 'Marketing Expert',
+        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fir=crop',
+        rating: 5,
+    },
+    {
+        quote: 'The one-click export feature saved me so much time. I was able to publish my ebook on multiple platforms',
+        author: 'Ranjan Banmota',
+        title: 'Indie Publisher',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fir=crop',
+        rating: 5,
+    },
+]
