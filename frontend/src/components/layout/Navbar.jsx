@@ -5,8 +5,8 @@ import { Menu, X, BookOpen, LogOut } from "lucide-react";
 import { href } from "react-router-dom";
 
 const Navbar = () => {
-    const { user, logout, isAuthenticated } = useAuth();
-  const [ isOpen, setIsOpen ] = useState(false);
+  const { user, logout, isAuthenticated } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
   const [ProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   const navLinks = [
@@ -75,7 +75,10 @@ const Navbar = () => {
                 >
                   Login
                 </a>
-                <a href="/signup" className="px-5 py-2 text-sm font-medium text-white bg-linear-to-r from-violet-400 to-purple-500 rounded-lg hover:from-violet-700 hover:to-purple-700 shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 transition-all duration-200 hover:scale-105">
+                <a
+                  href="/signup"
+                  className="px-5 py-2 text-sm font-medium text-white bg-linear-to-r from-violet-400 to-purple-500 rounded-lg hover:from-violet-700 hover:to-purple-700 shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 transition-all duration-200 hover:scale-105"
+                >
                   Get Started
                 </a>
               </>
@@ -83,7 +86,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
+          >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
