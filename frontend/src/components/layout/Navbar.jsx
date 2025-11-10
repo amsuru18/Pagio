@@ -5,8 +5,8 @@ import { Menu, X, BookOpen, LogOut } from "lucide-react";
 import { href } from "react-router-dom";
 
 const Navbar = () => {
-  const { user, logout, isAuthenticated } = useAuth();
-  const { isOpen, setIsOpen } = useState(false);
+    const { user, logout, isAuthenticated } = useAuth();
+  const [ isOpen, setIsOpen ] = useState(false);
   const [ProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   const navLinks = [
