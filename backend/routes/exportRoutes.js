@@ -1,10 +1,13 @@
-const express = require("express")
+const express = require('express');
 const router = express.Router();
-const {exportAsPDF, exportAsDocument} = require("../controllers/exportController")
-const {protect} = require("../middlewares/authMiddleware");
-const { route } = require("./aiRoutes");
+const {
+    exportAsPDF,
+    exportAsDocument
+} = require('../controllers/exportController');
+const { protect } = require('../middlewares/authMiddleware');
+const { route } = require('./aiRoutes');
 
-router.get("/:id/pdf", protect, exportAsPDF);
-router.get("/:id/doc", protect, exportAsDocument)
+router.get('/:id/pdf', protect, exportAsPDF);
+router.get('/:id/doc', protect, exportAsDocument);
 
 module.exports = router;
