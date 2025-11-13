@@ -35,69 +35,84 @@ const Hero = () => {
                                 className="group inline-flex items-center space-x-2 bg-linear-to-r from-violet-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-200"
                             >
                                 <span>Start Creating for FREE!</span>
-                                <ArrowRight className="" />
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
 
-                            <a href="#demo" className="">
+                            <a
+                                href="#demo"
+                                className="inline-flex items-center space-x-2 text-gray-700 font-medium hover:text-violet-600 transition-colors duration-200"
+                            >
                                 <span>Watch Demo</span>
-                                <span className="">→</span>
+                                <span className="text-violet-600">→</span>
                             </a>
                         </div>
 
-                        <div className="">
-                            <div className="">
-                                <div className="">50K+</div>
-                                <div className="">Books Created</div>
-                            </div>
-                            <div className=""></div>
+                        <div className="flex items-center gap-8 pt-4">
                             <div>
-                                <div className="">4.9/5</div>
-                                <div className="">User Rating</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    50K+
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    Books Created
+                                </div>
                             </div>
-                            <div className=""></div>
+                            <div className="w-px h-12 bg-gray-200"></div>
                             <div>
-                                <div className="">10 min</div>
-                                <div className="">Avg. Creation</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    4.9/5
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    User Rating
+                                </div>
+                            </div>
+                            <div className="w-px h-12 bg-gray-200"></div>
+                            <div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    10 min
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    Avg. Creation
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="">
-                        <div className="">
-                            <div className=""></div>
-                            <div className="">
-                                <img
+                    <div className="relative lg:pl-8">
+                        <div className="relative">
+                            <div className="absolute -inset-4 bg-linear-to-r from-violet-600 to-purple-600 rounded-3xl opacity-20 blur-2xl"></div>
+                            <div className="relative bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
+                                {/* <img
                                     src={HERO_IMG}
                                     alt="AI Ebook Creator Dashboard"
-                                    className=""
-                                />
-                                <div className="">
-                                    <div className="">
-                                        <div className="">
-                                            <Zap className="" />
+                                    className="w-full h-auto"
+                                /> */}
+                                <div className="absolute top-6 right-6 bg-white rounded-2xl shadow-xl p-4 backdrop-blur-sm border border-gray-100 animate-in fade-in slide-in-from-right duration-700">
+                                    <div className="flex items-center space-x-3">
+                                        <div className="w-10 h-10 bg-linear-to-r from-violet-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                            <Zap className="w-5 h-5 text-white" />
                                         </div>
                                         <div>
-                                            <div className="">
-                                                <div className="">
+                                            <div>
+                                                <div className="text-xs text-gray-500">
                                                     Processing
                                                 </div>
-                                                <div className="">
+                                                <div className="text-sm font-semibold text-gray-900">
                                                     AI Generation
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="">
-                                        <div className="">
-                                            <div className="">
-                                                <BookOpen className="" />
+                                    <div className="absolute bottom-6 left-6 bg-white rounded-2xl shadow-xl p-4 backdrop-blur-sm border border-gray-100 animate-in fade-in slide-in-from-left duration-700 delay-300">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-10 h-10 bg-linear-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                                                <BookOpen className="w-5 h-5 text-white" />
                                             </div>
                                             <div>
-                                                <div className="">
+                                                <div className="text-xs text-gray-500">
                                                     Completed
                                                 </div>
-                                                <div className="">247</div>
+                                                <div className="text-sm font-semibold text-gray-900">247 Pages</div>
                                             </div>
                                         </div>
                                     </div>
