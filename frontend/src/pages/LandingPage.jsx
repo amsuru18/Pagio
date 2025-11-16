@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Hero from '../components/landing/Hero';
-import Hero from '../components/landing/Features';
+import Features from '../components/landing/Features';
 
 const LandingPage = () => {
     return (

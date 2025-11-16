@@ -7,45 +7,62 @@ const Features = () => {
             id="features"
             className="relative py-24 lg:py-32 bg-white overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative text-center space-y-6">
+                {/* Section Tag */}
                 <div className="inline-flex items-center space-x-2 bg-violet-100 px-4 py-2 rounded-full">
                     <span className="w-2 h-2 bg-violet-600 rounded-full animate-pulse"></span>
                     <span className="text-sm font-semibold text-violet-900">
                         Features
                     </span>
                 </div>
+
+                {/* Heading */}
                 <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-900 tracking-tight">
                     Everything You Need to
                     <span className="block mt-2 bg-linear-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
                         Create Your eBook
                     </span>
                 </h2>
-                <p className="text-base text-gray-600 max-w-2xl mx-auto">
+
+                {/* Description */}
+                <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     Our platform is packed with powerful features to help you
                     write, design, and publish your ebook effortlessly.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Feature Cards */}
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {FEATURES.map((feature, index) => {
                     const Icon = feature.icon;
+
                     return (
                         <div
                             key={index}
-                            className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-violet-200 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-10"
+                            className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-violet-200 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-2"
                         >
+                            {/* Background Hover Overlay */}
                             <div className="absolute inset-0 bg-linear-to-br from-violet-50/0 to-purple-50/0 group-hover:from-violet-50/30 rounded-2xl transition-all duration-300"></div>
+
                             <div className="relative space-y-4">
+                                {/* Icon Wrapper */}
                                 <div
-                                    className={`w-14 h-14 bg-linear-to-br ${feature.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-${feature.gradient}/20 group-hover:scale-110 transition-transform duration-300`}
+                                    className={`w-14 h-14 bg-linear-to-br ${feature.gradient} rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/20 group-hover:scale-110 transition-transform duration-300`}
                                 >
                                     <Icon className="w-7 h-7 text-white" />
                                 </div>
+
+                                {/* Title + Description */}
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-violet-900 transition-colors">{feature.title}</h3>
-                                    <p className="text-gray-600 landing-relaxed text-sm">{feature.description}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-violet-900 transition-colors">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-gray-600 leading-relaxed text-sm">
+                                        {feature.description}
+                                    </p>
                                 </div>
 
+                                {/* Learn More */}
                                 <div className="pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <span className="text-violet-600 text-sm font-medium inline-flex items-center">
                                         Learn More
@@ -70,9 +87,13 @@ const Features = () => {
                 })}
             </div>
 
+            {/* CTA */}
             <div className="text-center mt-16">
                 <p className="text-gray-600 mb-6">Ready to get started?</p>
-                <a href="/signup" className="inline-flex items-center space-x-2 bg-linear-to-r from-violet-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-200">
+                <a
+                    href="/signup"
+                    className="inline-flex items-center space-x-2 bg-linear-to-r from-violet-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-200"
+                >
                     <span>Start Creating Today</span>
                     <svg
                         className="w-5 h-5"
