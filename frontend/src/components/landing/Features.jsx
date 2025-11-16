@@ -7,6 +7,9 @@ const Features = () => {
             id="features"
             className="relative py-24 lg:py-32 bg-white overflow-hidden"
         >
+            {/* Subtitle Background Pattern */}
+            <div className="absolute inset-0 -z-10 bg-linear-to-b from-violet-50/50 via-transparent to-purple-50/50"></div>
+
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative text-center space-y-6">
                 {/* Section Tag */}
                 <div className="inline-flex items-center space-x-2 bg-violet-100 px-4 py-2 rounded-full">
