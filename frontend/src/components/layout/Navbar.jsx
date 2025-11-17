@@ -94,7 +94,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      ;
     </header>
   );
 };

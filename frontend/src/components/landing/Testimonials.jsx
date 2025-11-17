@@ -90,7 +90,7 @@ const Testimonials = () => {
 
                 {/* Bottom Stats */}
                 <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <div className="text-centre">
+                    <div className="text-center">
                         <div className="text-4xl font-bold text-gray-900 mb-2">
                             50K+
                         </div>
