@@ -11,6 +11,7 @@ const LandingPage = () => {
             <Hero />
             <Features />
             <Testimonials />
+            <Footer />
         </div>
     );
 };
