@@ -154,7 +154,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border border-white/10 py-8">
+                <div className="border-t border-white/10 py-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <p className="text-gray-400 text-sm">
                             {new Date().getFullYear()} Pagio. All rights
