@@ -20,7 +20,9 @@ const Footer = () => {
                             <div className="w-10 h-10 bg-linear-to-br from-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-all duration-300 group-hover:scale-105">
                                 <BookOpen className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-xl font-semibold tracking-tight"></span>
+                            <span className="text-xl font-semibold tracking-tight">
+                                Pagio
+                            </span>
                         </a>
                         <p className="text-gray-400 leading-relaxed max-w-sm">
                             Create, design, and publish stunning eBooks with the
@@ -31,6 +33,8 @@ const Footer = () => {
                         <div className="flex items-center space-x-3 pt-2">
                             <a
                                 href="https://twitter.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
                                 aria-label="Twitter"
                             >
@@ -38,6 +42,8 @@ const Footer = () => {
                             </a>
                             <a
                                 href="https://linkedin.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
                                 aria-label="LinkedIn"
                             >
@@ -45,6 +51,8 @@ const Footer = () => {
                             </a>
                             <a
                                 href="https://github.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
                                 aria-label="GitHub"
                             >
@@ -153,7 +161,8 @@ const Footer = () => {
                             reserved.
                         </p>
                         <p className="text-gray-500 text-sm">
-                            Made with <span className="text-violet-400">♥</span> for creators.
+                            Made with <span className="text-violet-400">♥</span>{' '}
+                            for creators.
                         </p>
                     </div>
                 </div>
