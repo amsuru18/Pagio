@@ -1,12 +1,16 @@
-import React from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Mail, Lock, BookOpen } from 'lucide-react';
+import toast from 'react-hot-toast';
+
+import InputField from '../components/ui/InputField';
+import Button from '../components/ui/Button';
+import { useAuth } from '../contexts/AuthContext';
+import axiosInstance from '../utils/axiosInstance';
+import { API_PATHS } from '../utils/apiPaths';
 
 const LoginPage = () => {
-    return (
-        <div className="animate-in slide-in-from-left fade-in p-10 bg-red-300 rounded-xl">
-            Hello Animation!
-        </div>
-    );
-
+    return <div className=""></div>;
 };
 
 export default LoginPage;
