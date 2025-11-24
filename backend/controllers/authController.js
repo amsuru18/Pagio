@@ -45,24 +45,22 @@ exports.registerUser = async (req, res) => {
 // @access - Public
 exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
-
-    const user = await User.findOne({ email }).select('+password');
-
-    if (user && (await user.matchPassword(password))) {
-        res.json({
-            message: 'Login successfull',
-            id: user._id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id)
-        });
-    } else {
-        res.status(401).json({ message: 'Invalid credentials' });
-    }
-
     try {
+        const user = await User.findOne({ email }).select('+password');
+        if (user && (await user.matchPassword(password))) {
+            res.json({
+                message: 'Login Successful',
+                _id: user.id,
+                name: user.name,
+                email: user.email,
+                token: generateToken(user._id)
+            });
+        } else {
+            res.status(401).json({ message: 'Invalid credentials' });
+        }
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        console.error('Login error:', error);
+        return res.status(500).json({ message: 'Server Error' });
     }
 };
 

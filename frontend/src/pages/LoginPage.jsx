@@ -31,23 +31,22 @@ const LoginPage = () => {
 
             const { token } = response.data;
 
-            // Store token for axios interceptors
-            localStorage.setItem('token', token);
-
-            // Fetch user profile
             const profileResponse = await axiosInstance.get(
-                API_PATHS.AUTH.GET_PROFILE
+                API_PATHS.AUTH.GET_PROFILE,
+                {
+                    headers: { Authorization: `Bearer ${token}` }
+                }
             );
 
-            // AuthContext login → pass correct user object and token
-            login(profileResponse.data.user, token);
+            login(profileResponse.data, token);
 
             toast.success('Login successful!');
             navigate('/dashboard');
         } catch (error) {
+            localStorage.clear();
             toast.error(
                 error.response?.data?.message ||
-                    'Login failed. Please try again.'
+                    'Login failed! Please try again.'
             );
         } finally {
             setIsLoading(false);
@@ -73,33 +72,28 @@ const LoginPage = () => {
                 {/* Form Container */}
                 <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-8">
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Email */}
                         <InputField
                             label="Email"
                             name="email"
                             type="email"
                             placeholder="you@example.com"
-                            autoComplete="email"
                             icon={Mail}
                             value={formData.email}
                             onChange={handleChange}
                             required
                         />
 
-                        {/* Password */}
                         <InputField
                             label="Password"
                             name="password"
                             type="password"
                             placeholder="••••••••"
-                            autoComplete="current-password"
                             icon={Lock}
                             value={formData.password}
                             onChange={handleChange}
                             required
                         />
 
-                        {/* Submit Button */}
                         <Button
                             type="submit"
                             isLoading={isLoading}
@@ -109,7 +103,6 @@ const LoginPage = () => {
                         </Button>
                     </form>
 
-                    {/* Bottom Link */}
                     <p className="text-center text-sm text-slate-600 mt-8">
                         Don't have an account?{' '}
                         <Link
