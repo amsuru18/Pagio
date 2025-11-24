@@ -35,23 +35,55 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="">
-            <div className="">
-                <div className="">
-                    <div className="">
-                        <BookOpen className=''/>
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-md">
+                <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-violet-400 to-violet-500 rounded-full mb-4 shadow-md">
+                        <BookOpen className="w-8 h-8 text-white" />
                     </div>
-                    <h1 className="">Welcome Back</h1>
-                    <p className="">Sign in to continue to your eBook dashboard.</p>
+                    <h1 className="text-3xl font-bold text-slate-900">Welcome Back</h1>
+                    <p className="text-slate-600 mt-2">
+                        Sign in to continue to your eBook dashboard.
+                    </p>
                 </div>
 
-                <div className="">
-                    <form onSubmit={handleSubmit} className="">
+                <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-8">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <InputField
                             label="Email"
                             name="email"
                             type="email"
+                            placeholder="you@example.com"
+                            icon={Mail}
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <InputField
+                            label="Password"
+                            name="password"
+                            type="password"
+                            placeholder="••••••••"
+                            icon={Lock}
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <Button
+                            type="submit"
+                            isLoading={isLoading}
+                            classname="w-full"
+                        >
+                            Sign In
+                        </Button>
                     </form>
+
+                    <p className="text-center text-sm text-slate-600 mt-8">
+                        Don't have an account?{' '}
+                        <Link to="/signup" className="font-medium text-violet-600 hover:text-violet-700">
+                            Sign up
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>
