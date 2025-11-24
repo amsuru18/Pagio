@@ -47,7 +47,7 @@ const LoginPage = () => {
                         Welcome Back
                     </h1>
                     <p className="text-slate-600 mt-2">
-                        Sign in to continue to your eBook dashboard.
+                        Sign in to continue to your Pagio dashboard.
                     </p>
                 </div>
 
