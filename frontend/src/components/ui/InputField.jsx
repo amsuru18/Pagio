@@ -1,7 +1,6 @@
-import { Icon } from 'lucide-react';
 import React from 'react';
 
-const InputField = () => {
+const InputField = ({ label, name, Icon, ...props }) => {
     return (
         <div className="space-y-2">
             <label
@@ -10,12 +9,14 @@ const InputField = () => {
             >
                 {label}
             </label>
+
             <div className="relative">
                 {Icon && (
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Icon className="w-4 h-4 text-gray-400" />
                     </div>
                 )}
+
                 <input
                     id={name}
                     name={name}
