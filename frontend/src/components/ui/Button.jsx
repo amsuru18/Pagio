@@ -7,7 +7,7 @@ const Button = ({
     isLoading = false,
     children,
     icon: Icon,
-    classname = '',
+    className = '',
     ...props
 }) => {
     const variants = {
