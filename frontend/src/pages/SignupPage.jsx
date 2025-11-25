@@ -25,6 +25,22 @@ const SignupPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const passwordRegex =
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(formData.email)) {
+            toast.error('Invalid email format');
+            return;
+        }
+
+        if (!passwordRegex.test(formData.password)) {
+            toast.error(
+                'Password must be at least 8 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character.'
+            );
+            return;
+        }
         setIsLoading(true);
         try {
             const response = await axiosInstance.post(
@@ -75,7 +91,7 @@ const SignupPage = () => {
                             label="Full Name"
                             name="name"
                             type="text"
-                            placeholder="Golu Sharma"
+                            placeholder="Simran Kaur Doad"
                             icon={User}
                             value={formData.name}
                             onChange={handleChange}

@@ -14,28 +14,43 @@ exports.registerUser = async (req, res) => {
 
     try {
         if (!name || !email || !password) {
-            return res
-                .status(400)
-                .json({ message: 'Please fill all the fields' });
+            return res.status(400).json({ message: 'Please fill all fields' });
         }
 
-        const existingUser = await User.findOne({ email });
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                message: 'Please enter a valid email address'
+            });
+        }
 
+        // Strong password validation
+        const passwordRegex =
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!passwordRegex.test(password)) {
+            return res.status(400).json({
+                message:
+                    'Password must be 8+ characters long and include 1 uppercase, 1 lowercase, 1 number, and 1 special character'
+            });
+        }
+
+        // Check existing user
+        const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
 
+        // Create user
         const user = await User.create({ name, email, password });
 
-        if (user) {
-            res.status(201).json({
-                message: 'User successfully registered',
-                token: generateToken(user._id)
-            });
-        } else {
-            res.status(400).json({ message: 'Invalid user data' });
-        }
+        res.status(201).json({
+            message: 'User registered successfully',
+            token: generateToken(user._id)
+        });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Server Error' });
     }
 };
