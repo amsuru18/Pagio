@@ -19,10 +19,27 @@ const SignupPage = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         try {
+            const response = await axiosInstance.post(
+                API_PATHS.AUTH.REGISTER,
+                formData
+            );
+            const { token } = response.data;
+
+            //Fetch profile to get user details
+            const profileResponse = await axiosInstance.get(
+                API_PATHS.AUTH.GET_PROFILE,
+                {
+                    headers: { Authorization: `Bearer ${token}` }
+                }
+            );
+
+            login(profileResponse.data, token);
+            toast.success('Account created successfully');
+            navigate('/dashboard');
         } catch (error) {
             toast.error(
                 error.response?.data?.message ||
