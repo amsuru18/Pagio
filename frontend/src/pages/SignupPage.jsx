@@ -34,20 +34,22 @@ const SignupPage = () => {
     };
 
     return (
-        <div className="">
-            <div className="">
-                <div className="">
-                    <div className="">
-                        <BookOpen className="" />
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-md">
+                <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-violet-400 to-violet-500 rounded-full mb-4 shadow-md">
+                        <BookOpen className="w-8 h-8 text-white" />
                     </div>
-                    <h1 className="">Create an Account</h1>
-                    <p className="">
+                    <h1 className="text-3xl font-bold text-slate-900">
+                        Create an Account
+                    </h1>
+                    <p className="text-slate-600 mt-2">
                         Start your journey of creating amazing eBooks today.
                     </p>
                 </div>
 
-                <div className="">
-                    <form onSubmit={handleSubmit} className="">
+                <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-8">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <InputField
                             label="Full Name"
                             name="name"
@@ -81,15 +83,18 @@ const SignupPage = () => {
                         <Button
                             type="submit"
                             isLoading={isLoading}
-                            className=""
+                            className="w-full"
                         >
                             Create Account
                         </Button>
                     </form>
 
-                    <p className="">
+                    <p className="text-center text-sm text-slate-600 mt-8">
                         Already have an account?{' '}
-                        <Link to="/login" className="">
+                        <Link
+                            to="/login"
+                            className="font-medium text-violet-600 hover:text-violet-700"
+                        >
                             Sign in
                         </Link>
                     </p>
