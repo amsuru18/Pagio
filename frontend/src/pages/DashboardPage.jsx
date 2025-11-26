@@ -7,6 +7,7 @@ import BookCard from '../components/cards/BookCard.jsx';
 import DashboardLayout from '../components/layout/DashboardLayout.jsx';
 import Button from '../components/ui/Button.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
+import CreateBookModal from '../components/modals/CreateBookModal.jsx';
 import axiosInstance from '../utils/axiosInstance.js';
 import { API_PATHS } from '../utils/apiPaths.js';
 
@@ -165,6 +166,12 @@ const DashboardPage = () => {
                     onConfirm={handleDeleteBook}
                     title="Delete eBook"
                     message="Are you sure you want to delete this eBook? This action cannot be undone."
+                />
+
+                <CreateBookModal
+                    isOpen={isCreateModalOpen}
+                    onClose={() => setIsCreateModalOpen(false)}
+                    onBookCreated={handleBookCreated}
                 />
             </div>
         </DashboardLayout>
