@@ -69,18 +69,18 @@ const DashboardPage = () => {
                 </div>
 
                 {isLoading ? (
-                    <div className="">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {Array.from({ length: 4 }).map((_, i) => (
                             <BookCardSkeleton key={i} />
                         ))}
                     </div>
                 ) : books.length === 0 ? (
-                    <div className="">
-                        <div className="">
-                            <Book className="" />
+                    <div className="flex flex-col items-center justify-center py-12 text-center border-2 border-dashed border-slate-200 rounded-xl mt-8">
+                        <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+                            <Book className="w-8 h-8 text-slate-400" />
                         </div>
-                        <h1 className="">No eBooks found</h1>
-                        <p className="">
+                        <h1 className="text-lg font-medium text-slate-900 mb-2">No eBooks found</h1>
+                        <p className="text-slate-900 mb-6 max-w-md">
                             You haven't created any eBooks yet. Get started by
                             creating your first one.
                         </p>
@@ -89,7 +89,7 @@ const DashboardPage = () => {
                         </Button>
                     </div>
                 ) : (
-                    <div className=""></div>
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
                 )}
             </div>
         </DashboardLayout>
