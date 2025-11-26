@@ -67,6 +67,30 @@ const DashboardPage = () => {
                         Create New eBook
                     </Button>
                 </div>
+
+                {isLoading ? (
+                    <div className="">
+                        {Array.from({ length: 4 }).map((_, i) => (
+                            <BookCardSkeleton key={i} />
+                        ))}
+                    </div>
+                ) : books.length === 0 ? (
+                    <div className="">
+                        <div className="">
+                            <Book className="" />
+                        </div>
+                        <h1 className="">No eBooks found</h1>
+                        <p className="">
+                            You haven't created any eBooks yet. Get started by
+                            creating your first one.
+                        </p>
+                        <Button onClick={handleCreateBookClick} icon={Plus}>
+                            Create your first eBook
+                        </Button>
+                    </div>
+                ) : (
+                    <div className=""></div>
+                )}
             </div>
         </DashboardLayout>
     );
