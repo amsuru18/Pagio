@@ -1,15 +1,16 @@
-import React from 'react';
-
 const SelectField = ({ icon: Icon, label, name, options, ...props }) => {
     return (
-        <div className="">
-            <label htmlFor={name} className="">
+        <div className="space-y-2">
+            <label
+                htmlFor={name}
+                className="block text-sm font-medium text-gray-700"
+            >
                 {label}
             </label>
-            <div className="">
+            <div className="relative">
                 {Icon && (
-                    <div className="">
-                        <Icon className="" />
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                        <Icon className="w-4 h-4 text-gray-400" />
                     </div>
                 )}
                 <select
@@ -29,9 +30,9 @@ const SelectField = ({ icon: Icon, label, name, options, ...props }) => {
                         </option>
                     ))}
                 </select>
-                <div className="">
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
-                        className=""
+                        className="w-4 h-4 text-gray-400"
                         fill="none"
                         stroke="currenColor"
                         viewBox="0 0 24 24"
