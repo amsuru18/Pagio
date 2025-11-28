@@ -243,7 +243,7 @@ const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
                                     className="group p-4 border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-sm transition-all bg-white"
                                 >
                                     <div className="flex items-start gap-3 mb-3">
-                                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold flex-shrink-0 mt-2 ">
+                                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold shrink-0 mt-2 ">
                                             {index + 1}
                                         </div>
                                         <input
