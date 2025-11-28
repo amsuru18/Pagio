@@ -75,18 +75,81 @@ const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
     }, [chapters.length, step]);
 
     return (
-        <div>
-            <Modal
-                isOpen={isOpen}
-                onClose={() => {
-                    onClose();
-                    resetModal();
-                }}
-                title="Create New eBook"
-            >
-                Content Here
-            </Modal>
-        </div>
+        <Modal
+            isOpen={isOpen}
+            onClose={() => {
+                onClose();
+                resetModal();
+            }}
+            title="Create New eBook"
+        >
+            {step === 1 && (
+                <div className="space-y-5">
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-100 text-violet-600 text-sm font-semibold">
+                            1
+                        </div>
+                        <div className="flex-1 h-0.5 bg-gray-200 "></div>
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-400 text-sm font-semibold">
+                            2
+                        </div>
+                    </div>
+
+                    <InputField
+                        icon={BookOpen}
+                        label="Book Title"
+                        placeholder="Enter your book title..."
+                        value={bookTitle}
+                        onChange={(e) => setBookTitle(e.target.value)}
+                    />
+
+                    <InputField
+                        icon={Hash}
+                        label="Number of Chapters"
+                        type="number"
+                        placeholder="5"
+                        value={numChapters}
+                        onChange={(e) =>
+                            setNumChapters(parseInt(e.target.value) || 1)
+                        }
+                        min="1"
+                        max="2"
+                    />
+
+                    <InputField
+                        icon={Lightbulb}
+                        label="Topic (Optional)"
+                        placeholder="Specific topic for AI generation..."
+                        value={aiTopic}
+                        onChange={(e) => setAiTopic(e.target.value)}
+                    />
+
+                    <SelectedField
+                        icon={Palette}
+                        label="Writing Style"
+                        value={aiStyle}
+                        onChange={(e) => setAiStyle(e.target.value)}
+                        options={[
+                            'Informative',
+                            'Story',
+                            'Casula',
+                            'Professional',
+                            'Humorous'
+                        ]}
+                    />
+
+                    <div className="flex justify-end pt-4">
+                        <Button
+                            onClick={handleGenerateOutline}
+                            isLoading={isGeneralOutline}
+                            icon={Sparkles}
+                        >
+                            Generate Outline with AI
+                        </Button>
+                    </div>
+                </div>
+            )}
+        </Modal>
     );
 };
 
