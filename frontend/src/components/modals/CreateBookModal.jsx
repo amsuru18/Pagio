@@ -58,19 +58,36 @@ const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
     const handleAddChapter = () => {
         setChapters([
             ...chapters,
-            {title: `Chapter ${chapters.length + 1}`, description: ""}
-        ])
-    }
+            { title: `Chapter ${chapters.length + 1}`, description: '' }
+        ]);
+    };
 
-    const handleFinalizeBook = async() =>{}
+    const handleFinalizeBook = async () => {};
 
     useEffect(() => {
         if (step === 2 && chaptersContainerRef.current) {
-            
+            const scrollableDiv = chaptersContainerRef.current;
+            scrollableDiv.scrollTo({
+                top: scrollableDiv.scrollHeight,
+                behavior: 'smooth'
+            });
         }
-    })
+    }, [chapters.length, step]);
 
-    return <div></div>;
+    return (
+        <div>
+            <Modal
+                isOpen={isOpen}
+                onClose={() => {
+                    onClose();
+                    resetModal();
+                }}
+                title="Create New eBook"
+            >
+                Content Here
+            </Modal>
+        </div>
+    );
 };
 
 export default CreateBookModal;
