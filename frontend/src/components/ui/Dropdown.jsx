@@ -18,7 +18,25 @@ const Dropdown = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-    return <div></div>;
+    return (
+        <div className="relative inline-block text-left" ref={dropdownRef}>
+            <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
+
+            {isOpen && (
+                <div
+                    className="absolute right-0 z-20 mt-2 w-56 origin-top-right rounded-lg bg-white shadow-lg border border-slate-200 focus:outline-none "
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="menu-button"
+                    tabIndex="-1"
+                >
+                    <div className="py-1" role="none">
+                        {children}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default Dropdown;
