@@ -19,6 +19,7 @@ import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 import Dropdown, { DropdownItem } from '../components/ui/Dropdown.jsx';
 import InputField from '../components/ui/InputField.jsx';
+import ChapterSidebar from '../components/editor/ChapterSidebar.jsx'
 import Button from '../components/ui/Button.jsx';
 import Modal from '../components/ui/Modal.jsx';
 import SelectField from '../components/ui/SelectField.jsx';
@@ -129,7 +130,7 @@ const EditorPage = () => {
                                 onReorderChapters={handleReorderChapters}
                             />
                         </div>
-                        <div className="shrink-0" aria-hidden="hidden"></div>
+                        <div className="shrink-0 w-14" aria-hidden="hidden"></div>
                     </div>
                 )}
             </div>
