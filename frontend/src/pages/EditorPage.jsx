@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import {
     Sparkles,
@@ -19,14 +19,14 @@ import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 import Dropdown, { DropdownItem } from '../components/ui/Dropdown.jsx';
 import InputField from '../components/ui/InputField.jsx';
-import ChapterSidebar from '../components/editor/ChapterSidebar.jsx'
+import ChapterSidebar from '../components/editor/ChapterSidebar.jsx';
 import Button from '../components/ui/Button.jsx';
 import Modal from '../components/ui/Modal.jsx';
 import SelectField from '../components/ui/SelectField.jsx';
 
 const EditorPage = () => {
     const { bookId } = useParams();
-    const useNavigate = useNavigate();
+    const navigate = useNavigate();
     const [book, setBook] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
@@ -34,7 +34,7 @@ const EditorPage = () => {
     const [selectedChapterIndex, setSelectedChapterIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('editor');
     const fileInputRef = useRef(null);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     //AI Modal State
     const [isOutlineModalOpen, setIsOutlineModalOpen] = useState(false);
@@ -46,7 +46,7 @@ const EditorPage = () => {
         const fetchBook = async () => {
             try {
                 const response = await axiosInstance.get(
-                    `${API_PATHS.BOOKS.GET_BOOKS_BY_ID}/ ${bookId}`
+                    `${API_PATHS.BOOKS.GET_BOOKS_BY_ID}/${bookId}`
                 );
                 setBook(response.data);
             } catch (error) {
@@ -55,8 +55,8 @@ const EditorPage = () => {
             } finally {
                 setIsLoading(false);
             }
-            fetchBook();
         };
+        fetchBook();
     }, [bookId, navigate]);
 
     const handleBookChange = (e) => {
@@ -97,7 +97,11 @@ const EditorPage = () => {
             <div className="flex bg-slate-50 font-sans relative min-h-screen">
                 {/* Mobile Sidebar */}
                 {isSidebarOpen && (
-                    <div className="fixed inset-0 z-40 flex md:hidden" role="dialog" aria-modal="true">
+                    <div
+                        className="fixed inset-0 z-40 flex md:hidden"
+                        role="dialog"
+                        aria-modal="true"
+                    >
                         <div
                             className="fixed inset-0 bg-black/20 bg-opacity-75"
                             aria-hidden="true"
@@ -110,7 +114,9 @@ const EditorPage = () => {
                                     className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                                     onClick={() => setIsSidebarOpen(false)}
                                 >
-                                    <span className="sr-only"> Close Sidebar</span>
+                                    <span className="sr-only">
+                                        Close Sidebar
+                                    </span>
                                     <X className="h-6 w-6 text-white" />
                                 </button>
                             </div>
@@ -130,7 +136,10 @@ const EditorPage = () => {
                                 onReorderChapters={handleReorderChapters}
                             />
                         </div>
-                        <div className="shrink-0 w-14" aria-hidden="hidden"></div>
+                        <div
+                            className="shrink-0 w-14"
+                            aria-hidden="hidden"
+                        ></div>
                     </div>
                 )}
             </div>
