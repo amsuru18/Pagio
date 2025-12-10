@@ -23,6 +23,7 @@ import ChapterSidebar from '../components/editor/ChapterSidebar.jsx';
 import Button from '../components/ui/Button.jsx';
 import Modal from '../components/ui/Modal.jsx';
 import SelectField from '../components/ui/SelectField.jsx';
+import ChapterEditorTab from '../components/editor/ChapterEditorTab.jsx';
 
 const EditorPage = () => {
     const { bookId } = useParams();
