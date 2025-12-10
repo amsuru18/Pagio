@@ -222,6 +222,28 @@ const EditorPage = () => {
                             </Button>
                         </div>
                     </header>
+
+                    <div className="">
+                        {activeTab === 'editor' ? (
+                            <ChapterEditorTab
+                                book={book}
+                                selectedChapterIndex={selectedChapterIndex}
+                                onChapterChange={handleChapterChange}
+                                onGenerateChapterContent={
+                                    handleGenerateChapterContent
+                                }
+                                isGenerating={isGenerating}
+                            />
+                        ) : (
+                            <BookDetailsTab
+                                book={book}
+                                onBookChange={handleBookChange}
+                                onCoverUpload={handleCoverImageUpload}
+                                isUploading={isUploading}
+                                fileInputRef={fileInputRef}
+                            />
+                        )}
+                    </div>
                 </main>
             </div>
         </>
