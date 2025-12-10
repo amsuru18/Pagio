@@ -24,6 +24,7 @@ import Button from '../components/ui/Button.jsx';
 import Modal from '../components/ui/Modal.jsx';
 import SelectField from '../components/ui/SelectField.jsx';
 import ChapterEditorTab from '../components/editor/ChapterEditorTab.jsx';
+import BookDetailsTab from '../components/editor/BookDetailsTab.jsx'
 
 const EditorPage = () => {
     const { bookId } = useParams();
@@ -35,7 +36,7 @@ const EditorPage = () => {
     const [selectedChapterIndex, setSelectedChapterIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('editor');
     const fileInputRef = useRef(null);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     //AI Modal State
     const [isOutlineModalOpen, setIsOutlineModalOpen] = useState(false);

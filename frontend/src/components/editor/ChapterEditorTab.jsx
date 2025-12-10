@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const ChapterEditorTab = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const ChapterEditorTab = ({
+    book,
+    selectedChapterIndex,
+    handleChapterChange,
+    onGenerateChapterContent,
+    isGenerating
+}) => {
+    return <div className=""></div>;
+};
 
-export default ChapterEditorTab
+export default ChapterEditorTab;
